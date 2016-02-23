@@ -2,17 +2,31 @@
 
 let Activity = require('../../lib/core/activity');
 let Stomp = require('../../lib/activities/connectors/stomp');
+let Validator = require('../../lib/core/validator');
 
-/**
- * @param sendOnlyOne: Disconnects after sending a single message
- * @param destination: Destination queue/topic
- * @param connection: The connection
- * @param connection.host: The host name
- * @param connection.port: The port
- */
 class JMSSend extends Activity {
     constructor(opts) {
         super(opts);
+        this.paramsValidator = Validator.compile({
+            description: 'The jms send activity parameter schema',
+            title: 'JMSSend',
+            type: 'object',
+            properties: {
+                sendOnlyOne: {
+                    type: 'boolean',
+                    description: 'Set to true to close the connection after sending a single message. Default: false'
+                },
+                connection: {
+                    type: 'object',
+                    required: ['port','host'],
+                    properties: {
+                        port: {type: 'number', description:'Mandatory. The port number where to connect'},
+                        host: {type: 'string', description:'Mandatory. The host url or ip'}
+                    }
+                },
+                destination: {type: 'string', description:'Mandatory. The destination queue'}
+            }
+        });
     }
 
     run(input, context, callback) {
