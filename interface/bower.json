@@ -1,0 +1,24 @@
+{
+  "name": "Jestil Interface",
+  "homepage": "https://github.com/libreware/Jestil",
+  "authors": [
+    "Ben <ben@juliand.co.uk>"
+  ],
+  "description": "Jestil interface for creating jobs",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "ESB",
+    "ETL",
+    "Javascript"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
