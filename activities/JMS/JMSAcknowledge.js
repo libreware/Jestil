@@ -10,8 +10,8 @@ class JMSAcknowledge extends Activity {
             description: 'The jms acknowledge activity parameter schema',
             title: 'JMSAcknowledge',
             type: 'object',
+            required: ['target'],
             properties: {
-                required: ['target'],
                 closeAfterAck: {
                     type: 'boolean',
                     description: 'Set to true to close the connection after the ack is sent. Default: false'

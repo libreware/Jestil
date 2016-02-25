@@ -5,5 +5,6 @@ module.exports = {
     JMSSend: require('./JMS/JMSSend'),
     JMSAcknowledge: require('./JMS/JMSAcknowledge'),
     Log: require('./General/Log'),
-    MapTransform: require('./General/MapTransform')
+    MapTransform: require('./General/MapTransform'),
+    Iterate: require('./Orchestration/Iterate')
 };
