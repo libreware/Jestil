@@ -1,14 +1,27 @@
 'use strict';
 
 let Activity = require('../../lib/core/activity');
+let Validator = require('../../lib/core/validator');
 
-/**
- * @param target: The target's unique id
- * @param closeAfterAck: Set to true to close the connection after ack
- */
 class JMSAcknowledge extends Activity {
     constructor(opts) {
         super(opts);
+        this.paramsValidator = Validator.compile({
+            description: 'The jms acknowledge activity parameter schema',
+            title: 'JMSAcknowledge',
+            type: 'object',
+            required: ['target'],
+            properties: {
+                closeAfterAck: {
+                    type: 'boolean',
+                    description: 'Set to true to close the connection after the ack is sent. Default: false'
+                },
+                target: {
+                    type: 'string',
+                    description: 'Mandatory. The id of the target JMSListen component'
+                }
+            }
+        });
     }
 
     run(input, context, callback) {
