@@ -30,17 +30,26 @@
           }
         }
       },
-      "transitions": ["Log1"]
+      "transitions": ["Iterate1"]
     },
-    "Log1": {
-      "id": "Log1",
-      "type": "Log",
-      "name": "Log result",
-      "input": {
-        "result": {
-          "_jsonPath": "$.Map_Transform1.myBooks.totalPrice",
-          "_transformation": "(res) => parseInt(res) + 1000"
-        }
+    "Iterate1":{
+      "id": "Iterate1",
+      "type": "Iterate",
+      "name": "Loop",
+      "input": {"_jsonPath": "$.MapTransform1.myBooks.titles[*]"},
+      "params": {
+        "activities":{
+          "Log1": {
+            "id": "Log1",
+            "type": "Log",
+            "name": "Log result",
+            "input":{
+              "title":{"_jsonPath":"$.LoopItem"}
+            },
+            "transitions": []
+        }},
+        "starter":"Log1",
+        "finisher":"Log1"
       },
       "transitions": ["JMSAcknowledge1"]
     },
@@ -50,7 +59,7 @@
       "name": "ACK",
       "input": {"_jsonPath": "$.JMSListen1"},
       "params": {
-        "target": "JMSListen1",
+        "target": "JMSListen1"
       },
       "transitions": []
     }
