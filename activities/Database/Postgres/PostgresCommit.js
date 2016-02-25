@@ -2,9 +2,8 @@
 
 let Activity = require('../../../lib/core/activity');
 let Validator = require('../../../lib/core/validator');
-let PostgresConnector = require('../../../lib/activities/connectors/postgres');
 
-class PostgresQuery extends Activity {
+class PostgresCommit extends Activity {
     constructor(opts) {
         super(opts);
         this.paramsValidator = Validator.compile({
@@ -25,4 +24,4 @@ class PostgresQuery extends Activity {
     }
 }
 
-module.exports = PostgresQuery;
+module.exports = PostgresCommit;
