@@ -12,7 +12,8 @@ class MapTransform extends Activity {
             description: 'The map transform activity parameter schema',
             title: 'MapTransform',
             type: 'object',
-            properties: {}
+            required: ['mapping'],
+            properties: {mapping: {type: 'object'}}
         });
     }
 
