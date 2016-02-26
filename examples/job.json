@@ -2,6 +2,7 @@
   "name": "Book2Collection_job",
   "id": 1,
   "starter": "JMSListen1",
+  "finisher": "JMSAcknowledge1",
   "activities": {
     "JMSListen1": {
       "id": "JMSListen1",
