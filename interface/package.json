@@ -1,0 +1,45 @@
+{
+  "name": "JestilInterface",
+  "version": "1.0.0",
+  "description": "Javascript ETL",
+  "main": "index.js",
+  "keywords": [
+    "ETL",
+    "Node",
+    "Queue",
+    "STOMP",
+    "Postgres"
+  ],
+  "author": "Ben",
+  "license": "MIT",
+  "dependencies": {
+    "history": "1.17.0",
+    "react": "0.14.7",
+    "react-dom": "0.14.7",
+    "react-router": "1.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "6.4.5",
+    "babel-loader": "6.2.2",
+    "babel-preset-es2015": "6.3.13",
+    "babel-preset-react": "6.3.13",
+    "babel-eslint": "4.1.8",
+    "css-loader": "0.23.1",
+    "eslint": "1.10.3",
+    "eslint-loader": "1.2.1",
+    "eslint-plugin-react": "3.16.1",
+    "file-loader": "0.8.5",
+    "node-sass": "3.4.2",
+    "react-hot-loader": "1.3.0",
+    "sass-loader": "3.1.2",
+    "style-loader": "0.13.0",
+    "webpack": "1.12.13",
+    "webpack-dev-server": "1.14.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --inline --history-api-fallback --config tools/webpack.config.js",
+    "lint": "eslint . --ext .js --ext .jsx",
+    "build": "webpack -p --progress --colors --config tools/webpack.config.js"
+  }
+}
